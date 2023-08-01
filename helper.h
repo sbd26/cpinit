@@ -2,8 +2,8 @@
 #define _HELPER_H_
 
 
-#define MAKE_FILE_COTENT "all:\n\tg++ -Wall -std=c++17 -O2 -Wextra -Wno-unused-result -Wshadow sol.cpp -o out"
-#define VERSION "v0.01"
+#define MAKE_FILE_COTENT "SRC = sol.cpp\nCFLAGS = -Wall -std=c++17 -O2 -Wextra -Wno-unused-result -Wshadow\nOUTPUT = out\nCC = g++\n\n$(OUTPUT): $(SRC)\n\t@$(CC) $(CFLAGS) $(SRC) -o $(OUTPUT)\n\nrun: $(OUTPUT)\n\t@./$(OUTPUT)\n\nclean:\n\t@rm $(OUTPUT)"
+#define VERSION "v0.02"
 
 #include <stdbool.h>
 #include <stdio.h>

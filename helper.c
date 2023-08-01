@@ -17,20 +17,6 @@ show_usages(void)
 void
 create_template(char * file_path_with_name)
 {
-      // const char* cppCodeTemplate = "/*\n"
-      //                             "* Author : bd26\n"
-      //                             "* Time   : %s\n"
-      //                             "*/\n"
-      //                             "\n"
-      //                             "#include <bits/stdc++.h>\n"
-      //                             "using namespace std;\n"
-      //                             "\n\n"
-      //                             "int main(){\n"
-      //                             "  ios::sync_with_stdio(false);\n"
-      //                             "  cin.tie(0);\n"
-      //                             "\n\n\n"
-      //                             "  return 0;\n"
-      //                             "}\n";
 
   time_t now;
   struct tm * timeinfo;
