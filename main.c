@@ -9,6 +9,9 @@
 typedef enum {
   FOUND_DIR_NAME,
   FOUND_DIR_FLAG,
+  FOUND_ONE_FILE_FALG,
+  FOUND_ONE_FILE_NAME,
+  FOUND_GENERAL_FLAG,
   LAST_INDEX
 }helper;
 
@@ -18,6 +21,7 @@ int
 main(int argc, char * argv[])
 {
   char * dir_name;
+  char * one_file_name;
   if (argc == 2 and !strcmp(argv[1], "-v"))
   {
     printf("󰀵 VERSION IS %s\n",VERSION);
@@ -41,8 +45,23 @@ main(int argc, char * argv[])
             found_arr[FOUND_DIR_NAME] = true;
             dir_name = argv[i + 1];
         }
+      } else if (!strcmp(argv[i], "-o")){
+        found_arr[FOUND_ONE_FILE_FALG] = true;
+        if (i + 1 < argc)
+          if (argv[i+1][0] != '-'){
+            found_arr[FOUND_ONE_FILE_NAME] = true;
+            dir_name = argv[i + 1];
+          }
       }
+
+      if (!strcmp(argv[i], "-g")) found_arr[FOUND_GENERAL_FLAG] = true;
     }
+  }
+
+  if (found_arr[FOUND_ONE_FILE_FALG] && found_arr[FOUND_ONE_FILE_NAME]){
+    printf("Creating.....\n");
+    create_template(dir_name, found_arr[FOUND_GENERAL_FLAG]);
+    exit(10);
   }
 
   if (!found_arr[FOUND_DIR_FLAG] or !found_arr[FOUND_DIR_NAME])

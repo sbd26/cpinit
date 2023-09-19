@@ -17,7 +17,7 @@
 
 void show_usages(void);
 void create_sub_dire(char * dir_name);
-void create_template(char * file_path_with_name);
+void create_template(char * file_path_with_name, bool general_flag);
 
 
 
